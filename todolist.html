@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .main{
+            display: flex;
+            flex-direction: column;
+            height: max-content;
+            background-color: antiquewhite;
+            width: 20rem;
+            padding: 0 0 3rem 3rem;
+            margin: 15rem 30rem;
+        }
+        .text{
+            background-color: aliceblue;
+            color: black;
+            margin-top: 10px;
+            margin-right: 3rem;
+        }
+      
+    </style>
+</head>
+
+<body style="background-color: aquamarine;">
+    <div class="main">
+        <h1>todo list</h1>  
+        <div class="input">
+            <input type="text" name="" id="inpt">
+            <button onclick="Add()">Add</button>
+            
+
+        </div>
+        <div class="text">
+      
+        </div>
+    </div>
+   
+    <script>
+        var input = document.getElementById("inpt")
+        let text = document.querySelector(".text")
+        let Add = function () {
+            if (input.value === "") {
+                alert("please enter task")
+            }
+            else {
+                let newelm = document.createElement("ul")
+                newelm.innerHTML = `${input.value}<i class="fa-solid fa-trash"></i>`
+                text.appendChild(newelm)
+                input.value = ""
+                newelm.querySelector("i").addEventListener("click",Remove)
+                function Remove(){
+                    newelm.remove()
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
